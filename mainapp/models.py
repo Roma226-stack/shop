@@ -186,7 +186,7 @@ class Customer(models.Model):
     user = models.OneToOneField(User, verbose_name='Пользователь', on_delete=models.CASCADE)
     phone = models.CharField(max_length=20, verbose_name='Номер телефона', null=True, blank=True)
     address = models.CharField(max_length=255, verbose_name='Адрес', null=True, blank=True)
-    orders = models.ManyToManyField('Order', verbose_name='Закакзы покупателя', related_name='related_order')
+    orders = models.ManyToManyField('Order', verbose_name='Закакзы покупателя', blank=True, related_name='related_order')
 
     def __str__(self):
         return "Покупатель: {} {}".format(self.user.first_name, self.user.last_name)
